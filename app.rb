@@ -1,7 +1,12 @@
 require 'sinatra'
+require 'shotgun'
 
 get '/' do
   'hello!'
+end
+
+get '/bye' do
+  'bye!'
 end
 
 get '/secret' do
@@ -9,7 +14,8 @@ get '/secret' do
 end
 
 get '/cat' do
-  erb(:index)
+  @name = ["Janice", "Sean", "Fred", "Ellie"].sample
+  erb :index
 end
 
 set :session_secret, 'super secret'
